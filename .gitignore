@@ -1,0 +1,9 @@
+rust/target/
+go/apifuzz-runner
+results.jsonl
+results/
+*.pyc
+__pycache__/
+.env
+.idea/
+.vscode/

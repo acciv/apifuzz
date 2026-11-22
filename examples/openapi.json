@@ -1,0 +1,41 @@
+{
+  "openapi": "3.0.3",
+  "info": {"title": "fuzz-demo", "version": "1.0.0"},
+  "paths": {
+    "/users/{id}": {
+      "get": {
+        "parameters": [
+          {"name": "id", "in": "path", "required": true, "schema": {"type": "string"}},
+          {"name": "page", "in": "query", "required": false, "schema": {"type": "integer"}}
+        ],
+        "responses": {
+          "200": {"description": "ok"},
+          "400": {"description": "bad request"},
+          "404": {"description": "not found"}
+        }
+      }
+    },
+    "/users": {
+      "post": {
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {"type": "string"},
+                  "role": {"type": "string", "enum": ["admin", "user"]}
+                },
+                "required": ["name"]
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {"description": "created"},
+          "400": {"description": "bad request"}
+        }
+      }
+    }
+  }
+}
